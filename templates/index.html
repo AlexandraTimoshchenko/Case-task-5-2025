@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="mb-4">Последние путешествия</h1>
+
+<div class="row">
+    {% for trip in trips %}
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            {% if trip.image %}
+            <img src="{{ url_for('static', filename='uploads/' + trip.image) }}" class="card-img-top">
+            {% endif %}
+            <div class="card-body">
+                <h5>{{ trip.title }}</h5>
+                <p>{{ trip.description[:100] }}...</p>
+                <p><strong>Место:</strong> {{ trip.location }}</p>
+                {% if trip.cost %}
+                <p><strong>Стоимость:</strong> {{ trip.cost }} руб.</p>
+                {% endif %}
+                <a href="/trip/{{ trip.id }}" class="btn btn-primary">Подробнее</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Добавить путешествие</h1>
+<form method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label class="form-label">Название</label>
+        <input type="text" name="title" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Описание</label>
+        <textarea name="description" class="form-control" required></textarea>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Местоположение</label>
+        <input type="text" name="location" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Изображение</label>
+        <input type="file" name="image" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Стоимость (руб)</label>
+        <input type="number" name="cost" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Места для посещения</label>
+        <textarea name="places" class="form-control"></textarea>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Оценка (1-10)</label>
+        <input type="number" name="rating" min="1" max="10" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Добавить</button>
+</form>
+{% endblock %}

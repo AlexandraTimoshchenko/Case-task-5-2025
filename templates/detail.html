@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    {% if trip.image %}
+    <img src="{{ url_for('static', filename='uploads/' + trip.image) }}" class="card-img-top">
+    {% endif %}
+    <div class="card-body">
+        <h1>{{ trip.title }}</h1>
+        <p class="text-muted">Автор: {{ trip.user.username }}</p>
+        <p><strong>Местоположение:</strong> {{ trip.location }}</p>
+        {% if trip.cost %}
+        <p><strong>Стоимость:</strong> {{ trip.cost }} руб.</p>
+        {% endif %}
+        {% if trip.rating %}
+        <p><strong>Оценка:</strong> {{ trip.rating }}/10</p>
+        {% endif %}
+        <div class="mb-3">
+            <h3>Описание</h3>
+            <p>{{ trip.description }}</p>
+        </div>
+        {% if trip.places %}
+        <div class="mb-3">
+            <h3>Места для посещения</h3>
+            <p>{{ trip.places }}</p>
+        </div>
+        {% endif %}
+        <a href="/" class="btn btn-primary">Назад</a>
+    </div>
+</div>
+{% endblock %}
